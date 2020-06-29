@@ -1,7 +1,22 @@
 # htaccesspseudodocroot
-.htaccess rules for a domain pseudo document root using centos8 and apache without editing the httpd.conf and adding virtual hosts.
+.htaccess rules for a domain pseudo document root using centos8 and apache without (additional) editing the httpd.conf and adding virtual hosts.
 
-Assuming you created a subdirectory in your **DocumentRoot** (*/var/www/html/*) for each (sub)domain your folder structure should look like this:
+## Prerequisites
+* CentOS8 
+* Apache (httpd)
+* .htaccess enabled (**httpd.conf**) in (*/etc/httpd/*), **AllowOverride All** for your **DocumentRoot** (*/var/www/html/*):
+```
+<Directory "/var/www/html">
+    #
+    # AllowOverride controls what directives may be placed in .htaccess files.
+    # It can be "All", "None", or any combination of the keywords:
+    #   Options FileInfo AuthConfig Limit
+    #
+    AllowOverride All
+</Directory>
+```
+
+Assuming you created a subdirectory in your **DocumentRoot** for each (sub)domain your folder structure should look like this:
 ```
 var/www/html
  - var/www/html/domain1.com/
@@ -28,3 +43,7 @@ RewriteRule !^domain2\.com /domain2.com%{REQUEST_URI} [L,NC,QSA]
 RewriteCond %{HTTP_HOST} ^domain3\.com$ [NC]
 RewriteRule !^domain3\.com /domain3.com%{REQUEST_URI} [L,NC,QSA]
 ```
+
+1. Alter the content of the .htaccess to fit your (local) configuration
+2. Copy/Paste or upload the .htaccess to your **DocumentRoot**
+3. ???
