@@ -16,6 +16,10 @@
 </Directory>
 ```
 
+*Last revision: 06-29-2020*
+
+## Create virtual hosts with .htaccess
+
 Assuming you created a subdirectory in your **DocumentRoot** for each (sub)domain your folder structure should look like this:
 ```
 var/www/html
