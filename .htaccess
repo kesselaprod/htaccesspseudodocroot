@@ -1,0 +1,15 @@
+RewriteEngine on
+
+RewriteBase /
+
+# Redirect Request domain1.com to subdir /domain1.com
+RewriteCond %{HTTP_HOST} ^domain1\.com$ [NC]
+RewriteRule !^domain1\.com /domain1.com%{REQUEST_URI} [L,NC,QSA]
+
+# Redirect Request domain2.com to /domain2.com
+RewriteCond %{HTTP_HOST} ^domain2\.com$ [NC]
+RewriteRule !^domain2\.com /domain2.com%{REQUEST_URI} [L,NC,QSA]
+
+# Redirect Request domain3.com to /domain3.com
+RewriteCond %{HTTP_HOST} ^domain3\.com$ [NC]
+RewriteRule !^domain3\.com /domain3.com%{REQUEST_URI} [L,NC,QSA]
